@@ -224,9 +224,12 @@
     let rechnungen = [];
     let tmp = data.split("\n");
     for (item of tmp) {
-      rechnungen.push(item.split("\t"));
+      rechnungen.push(item.split("\t").map((str) => str.trim()));
     }
-    rechnungen.pop();
+    if (rechnungen[rechnungen.length - 1].length == 1) {
+      rechnungen.pop();
+    }
+
     return rechnungen;
   }
 
