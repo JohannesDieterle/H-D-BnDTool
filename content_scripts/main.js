@@ -17,14 +17,13 @@
 
     // Funktioniert nur auf der Website public.kfw.de und dann erst wenn auf der Seite für die Kosteneingabe
     const urlBNDNichtwohnen = /public.kfw.de/.test(window.location.href);
-    const kosten_erfassen_gbnd = document.getElementById(
-      "wizard_form:idNewBuildingSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton"
-    );
+    const kosten_erfassen_gbnd_id = "wizard_form:idNewBuildingSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton"
+    let kosten_erfassen_gbnd = document.getElementById(kosten_erfassen_gbnd_id);
 
     if (urlBNDWohnen && kosten_erfassen_bnd != null) {
       rechnungsdatenEingebenBND(kosten_erfassen_bnd, rechnungen);
     } else if (urlBNDNichtwohnen && kosten_erfassen_gbnd != null) {
-      rechnungsdatenEingebenGBND(kosten_erfassen_gbnd, rechnungen);
+      rechnungsdatenEingebenGBND(kosten_erfassen_gbnd_id, rechnungen);
     } else {
       console.log("nicht auf der Richtigen Seite");
     }
@@ -80,11 +79,11 @@
     }
   }
 
-  async function rechnungsdatenEingebenGBND(kosten_erfassen_gbnd, rechnungen) {
+  async function rechnungsdatenEingebenGBND(kosten_erfassen_gbnd_id, rechnungen) {
     // Funktion für die Eingabe bei Nichtwohngebäuden
-    const fachplanung_erfassen_gbnd = document.getElementById(
-      "wizard_form:idEligiblePlanningAndSupervisionSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton"
-    );
+    
+    const fachplanung_erfassen_gbnd_id = "wizard_form:idEligiblePlanningAndSupervisionSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton"
+
     let kostentbody;
     let massnahmeAnzeige;
     let massnahmeAuswahl;
@@ -98,6 +97,7 @@
     for (item of rechnungen) {
       if (item[0] == "4") {
         // Knopf "Beleg-Eintrag hinzufügen" im Bereich Fachplanung und Baubegleitung drücken
+        let fachplanung_erfassen_gbnd = document.getElementById(fachplanung_erfassen_gbnd_id);
         fachplanung_erfassen_gbnd.click();
 
         await delay(1000);
@@ -143,6 +143,7 @@
           kostentbody.lastChild.children[6].children[0].children[1].children[0];
       } else {
         // Knopf "Beleg-Eintrag hinzufügen" beim Effizienzgebäude drücken
+        let kosten_erfassen_gbnd = document.getElementById(kosten_erfassen_gbnd_id);
         kosten_erfassen_gbnd.click();
 
         await delay(1000);
