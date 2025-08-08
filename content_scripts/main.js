@@ -218,6 +218,7 @@
     let firstFachplanung = true;
     let firstGebaeudehuelle = true;
     let firstWaermeerzeugung = true;
+    let firstBeleuchtung = true;
     let eingabetabelle;
     for (const item of rechnungen) {
       if (item[0] == "2") {
@@ -243,16 +244,26 @@
         firstGebaeudehuelle = false;
 
       } else if (item[0] == "3") {
-        const waermepumpeField = document.getElementById("blockWaermepumpe");
+        const waermeerzeugungField = document.getElementById("fieldsetWaermeerzeugung");
         if (!firstWaermeerzeugung) {
-          const addRowButton = waermepumpeField.children[2].children[3].children[0].children[0].children[0];
+          const addRowButton = waermeerzeugungField.children[1].children[3].children[0].children[0].children[0];
           addRowButton.click();
         }
         
-        eingabetabelle = waermepumpeField.children[2].children[4].lastElementChild;
+        eingabetabelle = waermeerzeugungField.children[1].children[4].lastElementChild;
 
         firstWaermeerzeugung = false;
-      }
+      } else if (item[0] == "4") {
+        const beleuchtungField = document.getElementById("fieldsetBeleuchtung");
+        if (!firstBeleuchtung) {
+          const addRowButton = beleuchtungField.children[1].children[3].children[0].children[0].children[0];
+          addRowButton.click();
+        }
+        
+        eingabetabelle = beleuchtungField.children[1].children[4].lastElementChild;
+
+        firstBeleuchtung = false;
+      } 
 
       const fachunternehmer = eingabetabelle.children[1].children[0];
       const rechnungsnummer = eingabetabelle.children[2].children[0];
@@ -265,8 +276,8 @@
       rechnungsnummer.value = item[2].substring(0, 30);
       rechnungsdatum.value = item[3];
       rechnungspositionen.value = item[4].substring(0, 30);
-      rechnungsbetrag.value = item[6].replace("€", "").replace(".", "").trim();
-      foerderfaehigerBetrag.value = item[5].replace("€", "").replace(".", "").trim();
+      rechnungsbetrag.value = item[5].replace("€", "").replace(".", "").trim();
+      foerderfaehigerBetrag.value = item[6].replace("€", "").replace(".", "").trim();
 
     }
   }
@@ -282,7 +293,7 @@
     // wird zu:
 
     // [[1, Unternehmen 1, 12345, 01.01.2021, alle, 65168],
-    // [2, Huber & Dieterle, RE2021-001, 05.06.2023, alle, 1234]]
+    //  [2, Huber & Dieterle, RE2021-001, 05.06.2023, alle, 1234]]
 
     let rechnungen = [];
     let tmp = data.split("\n");
