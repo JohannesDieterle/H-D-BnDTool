@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "H&D BnDTool",
-  "version": "2.4",
+  "version": "2.5",
 
   "description": "Gibt die Rechnungsdaten in die BnD-Formulare der KfW und TPN-Formulare des BAFA ein.",
 
@@ -9,11 +9,20 @@
     "48": "icons/H-D-logo.png"
   },
 
-  "permissions": ["activeTab", "alarms", "contextMenus"],
+  "permissions": ["activeTab", "contextMenus"],
 
   "browser_action": {
     "default_icon": "icons/H-D-logo.png",
     "default_title": "H&D_BnDTool",
     "default_popup": "popup/bndTool.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{6cfcd065-7718-41f8-855c-1a243a749253}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
   }
 }
