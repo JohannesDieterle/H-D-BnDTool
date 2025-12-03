@@ -17,14 +17,23 @@
 
     // Funktioniert nur auf der Website public.kfw.de und dann erst wenn auf der Seite für die Kosteneingabe
     const urlBNDNichtwohnen = /public.kfw.de/.test(window.location.href);
-    const kosten_erfassen_gbnd_id = "wizard_form:idNewBuildingSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton"
-    let kosten_erfassen_gbnd = document.getElementById(kosten_erfassen_gbnd_id);
+    let gbnd_id_neubau = "wizard_form:idNewBuildingSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton";
+    let gbnd_id_bestand = "wizard_form:idRenovationSection:idBegNwgBndReceiptForPurposeSection:idAddReceiptEntryButton";
+    let kosten_erfassen_gbnd = false;
+    let kosten_erfassen_gbnd_id;
+    if (document.getElementById(gbnd_id_neubau) != null) {
+      kosten_erfassen_gbnd = true;
+      kosten_erfassen_gbnd_id = gbnd_id_neubau;
+    } else if (document.getElementById(gbnd_id_bestand)) {
+      kosten_erfassen_gbnd = true;
+      kosten_erfassen_gbnd_id = gbnd_id_bestand;
+    }
 
     const urlTPNBAFA = /fms.bafa.de/.test(window.location.href)
 
     if (urlBNDWohnen && kosten_erfassen_bnd != null) {
       rechnungsdatenEingebenBND(kosten_erfassen_bnd, rechnungen);
-    } else if (urlBNDNichtwohnen && kosten_erfassen_gbnd != null) {
+    } else if (urlBNDNichtwohnen && kosten_erfassen_gbnd) {
       rechnungsdatenEingebenGBND(kosten_erfassen_gbnd_id, rechnungen);
     } else if (urlTPNBAFA != null){ 
       rechnungsdatenEingebenTPN(rechnungen);
@@ -107,7 +116,7 @@
         await delay(1000);
 
         //Knopf mit Stift drücken um Rechnungseingabe zu starten
-        kostentbody = document.getElementsByTagName("tbody")[2];
+        kostentbody = document.getElementsByTagName("tbody")[1];
         stift = kostentbody.lastChild.children[6].lastChild.children[0].click();
 
         massnahmeAnzeige =
@@ -153,7 +162,7 @@
         await delay(1000);
 
         //Knopf mit Stift drücken um Rechnungseingabe zu starten
-        kostentbody = document.getElementsByTagName("tbody")[1];
+        kostentbody = document.getElementsByTagName("tbody")[0];
         stift = kostentbody.lastChild.children[6].lastChild.children[0].click();
 
         massnahmeAnzeige =

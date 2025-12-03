@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "H&D BnDTool",
-  "version": "2.3",
+  "version": "2.4",
 
-  "description": "Gibt die Rechnungsdaten in die BnD Formulare der KfW ein.",
+  "description": "Gibt die Rechnungsdaten in die BnD-Formulare der KfW und TPN-Formulare des BAFA ein.",
 
   "icons": {
     "48": "icons/H-D-logo.png"
