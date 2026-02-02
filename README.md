@@ -25,7 +25,7 @@ Bei der BnD für Wohngebäude ist: 1 = Effizienzhaus; 2 = Fachplanung/Baubegleit
 
 Bei der gBnD für Nichtwohngebäude ist: 1 = Neubau; 2 = Sanierung; 3 = Einzelmaßnahme; 4 = Fachplanung/Baubegleitung; 5 = Nachhaltigkeitszertifizierung
 
-Bei dem TPN ist: 1 = Gebäudehülle; 2 = Fachplanung/Baubegleitung; 3 = Wärmepumpe (andere Heizungen und die Heizungsoptimierung sind noch nicht berücksichtigt); 4 = Beleuchtung
+Bei dem TPN ist: 1 = Gebäudehülle; 2 = Fachplanung/Baubegleitung; 3 = Wärmepumpe (andere Heizungen und die Heizungsoptimierung sind noch nicht berücksichtigt); 4 = Beleuchtung; 5 = Heizungsoptimierung
 
 Sobald alle Rechnungen eingegeben sind, wird die Website für die Erstellung von [BnD](https://experten.kfw.de/bnd-ebs/login/login.xhtml), [gBnD](https://public.kfw.de/GEW/masks/wizard.xhtml) oder [TPN2](https://fms.bafa.de/BafaFrame/login?redirect=/tpn2) (Vorgangsnummern 92000000-93999999) / [TPN3](https://fms.bafa.de/BafaFrame/login?redirect=/tpn3) (Vorgangsnummern ab 94000000) aufgerufen und zur Rechnungseingabe navigiert. Sobald die Rechnungseingabeseite geöffnet ist, kann die Eingabe der Rechnungen beginnen. Hierzu werden im Tabellenprogramm alle Rechnungsfelder ausgewählt und kopiert (nicht die Überschriftszeile!). Anschließend wieder zur Rechnungseingabeseite in Firefox wechseln und das Addon "H&D BnDTool" (über das Puzzelsymbol oben rechts) auswählen. Die Rechnungsdaten aus dem Tabellenprogramm werden in das Eingabefeld eingefügt und mit dem Knopf "Daten einlesen und starten" automatisch eingelesen.
 

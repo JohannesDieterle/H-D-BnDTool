@@ -228,6 +228,7 @@
     let firstGebaeudehuelle = true;
     let firstWaermeerzeugung = true;
     let firstBeleuchtung = true;
+    let firstHeizungsoptimierung = true;
     let eingabetabelle;
     for (const item of rechnungen) {
       if (item[0] == "2") {
@@ -272,6 +273,16 @@
         eingabetabelle = beleuchtungField.children[1].children[4].lastElementChild;
 
         firstBeleuchtung = false;
+      } else if (item[0] == "5") {
+        const heizungsoptimierungField = document.getElementById("fieldsetHeizungsoptimierung");
+        if (!firstHeizungsoptimierung) {
+          const addRowButton = heizungsoptimierungField.children[1].children[3].children[0].children[0].children[0];
+          addRowButton.click();
+        }
+        
+        eingabetabelle = heizungsoptimierungField.children[1].children[4].lastElementChild;
+
+        firstHeizungsoptimierung = false;
       } 
 
       const fachunternehmer = eingabetabelle.children[1].children[0];
